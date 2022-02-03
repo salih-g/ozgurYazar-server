@@ -68,6 +68,7 @@ This is a learn project about book blog.
 - Her bölüm oluştuğunda bir adet sayfası olucak
 - Her sayfaya kelime limiti konucak
 - Yeni sayfa oluşturmak için butona basılıcak
+- Errorları logger ile handle et
 
 ### Data model:
 

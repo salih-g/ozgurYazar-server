@@ -1,7 +1,7 @@
 const { verifyToken } = require('../utils/token');
 const Admin = require('../models/admin.model');
 
-exports.auth = async (req, res, next) => {
+exports.authMid = async (req, res, next) => {
 	let token;
 
 	if (
