@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 //Services
-const { hello } = require('./services/index');
+const { hello, auth } = require('./services/index');
 
 app.use(volleyball);
 app.use(cors());
@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.disable('etag');
 
 //Auth
+app.use('/auth', auth);
 
 //Admin
 

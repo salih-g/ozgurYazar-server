@@ -13,8 +13,8 @@ This is a learn project about book blog.
 
 ### Auth Service:
 
-- POST /auth/login
-- POST /auth/register / TEMP
+- [x] POST /auth/login
+- [x] POST /auth/register / TEMP
 
 ### Admin Service:
 

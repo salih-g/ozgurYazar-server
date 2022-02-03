@@ -1,10 +1,11 @@
 const logger = require('./logger');
 const mongoose = require('mongoose');
 const app = require('./app');
+const { MONGO_URL, PORT } = require('./config');
 
-const server = app.listen(8081, () => {
+const server = app.listen(PORT, () => {
 	mongoose
-		.connect('mongodb://localhost:27017/ozgurYazar-server')
+		.connect(MONGO_URL)
 		.then(() => {
 			console.log('DB connected');
 		})
@@ -19,5 +20,5 @@ process.on('unhandledRejection', (reason, p) =>
 );
 
 server.on('listening', () =>
-	logger.info('App started onhttp://localhost:8081'),
+	logger.info(`App started on:http://localhost:${PORT}`),
 );
