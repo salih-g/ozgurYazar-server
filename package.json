@@ -1,0 +1,8 @@
+{
+	"name": "ozgur-yazar-server",
+	"version": "0.0.1",
+	"description": "A server for Ozgur Yazar",
+	"main": "index.js",
+	"author": "M.Salih Gumus",
+	"license": "MIT"
+}
