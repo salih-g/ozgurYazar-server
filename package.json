@@ -2,7 +2,14 @@
 	"name": "ozgur-yazar-server",
 	"version": "0.0.1",
 	"description": "A server for Ozgur Yazar",
-	"main": "index.js",
+	"main": "src/index.js",
 	"author": "M.Salih Gumus",
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"nodemon": "^2.0.15"
+	},
+	"scripts": {
+		"dev": "nodemon src/",
+		"start": "node src/"
+	}
 }

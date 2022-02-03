@@ -22,6 +22,7 @@ This is a learn project about book blog.
 - GET /admin/contents/all
 - PATCH /admin/contents/:content_id
 - POST /admin/contents/newSection/:content_id
+- POST /admin/contents/newPage/:section_id
 - PATCH /admin/contents/newPage/:section_id
 
 ## Public Service:
