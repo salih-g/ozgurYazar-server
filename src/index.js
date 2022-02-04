@@ -1,5 +1,6 @@
 const logger = require('./logger');
 const server = require('./server');
+const { PORT } = require('./config');
 
 process.on('unhandledRejection', (reason, p) =>
 	logger.error('Unhandled Rejection at: Promise ', p, reason),

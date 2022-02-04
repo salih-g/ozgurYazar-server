@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const app = require('./app');
 const { MONGO_URL, PORT } = require('./config');
 
-
-
 const server = app.listen(PORT, () => {
 	mongoose
 		.connect(MONGO_URL)

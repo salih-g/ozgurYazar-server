@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 //Services
-const { hello, auth } = require('./services/index');
+const { auth, admin, public } = require('./services');
 
 app.use(volleyball);
 app.use(cors());
@@ -20,8 +20,9 @@ app.disable('etag');
 app.use('/auth', auth);
 
 //Admin
+app.use('/admin', admin);
 
 //Public
-app.use('/', hello);
+app.use('/', public);
 
 module.exports = app;
