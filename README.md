@@ -18,18 +18,24 @@ This is a learn project about book blog.
 
 ### Admin Service:
 
-- [x] GET /admin/contents
-- [x] GET /admin/contents/:id
-- [x] POST /admin/contents/new
-- [ ] PATCH /admin/contents/:content_id
-- [ ] POST /admin/contents/newSection/:content_id
-- [ ] POST /admin/contents/newPage/:section_id
-- [ ] PATCH /admin/contents/newPage/:section_id
+- [x] GET /admin/contents Get all contents
+- [x] GET /admin/contents/:content_id Get content by id
+- [x] POST /admin/contents/new Create new content
+- [ ] PATCH /admin/contents/:content_id Update content by id
+- [ ] DELETE /admin/contents/:content_id Delete content by id
+
+- [ ] GET /admin/sections/:content_id Create new section
+- [ ] POST /admin/sections/new/:content_id Create new section
+- [ ] DELETE /admin/sections/:content_id Create new section
+- [ ] POST /admin/sections/newPage/:section_id Create new page
+- [ ] PATCH /admin/contents/newPage/:section_id Update
 
 ## Public Service:
 
-- [ ] GET /contents
-- [ ] GET /contents/:id
+- [ ] GET /contents Get all published contents
+- [ ] GET /contents/:content_id Get content by id
+- [ ] GET /contents/sections/:content_id Get all sections by content id
+- [ ] GET /sections/:section_id Get section by id
 
 ---
 
