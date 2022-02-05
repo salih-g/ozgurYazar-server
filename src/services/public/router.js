@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-const { hello, getAllContents } = require('./controllers');
+const PublicController = require('./controllers');
 
-router.route('/').get(hello);
-router.route('/contents').get(getAllContents);
+router.route('/').get(PublicController.hello);
+router.route('/contents').get(PublicController.getAllContents);
 
 module.exports = router;

@@ -1,7 +1,10 @@
-exports.hello = async (_, res) => {
-	res.status(200).json({
-		message: '🦄🌈✨Hello World! 🌈✨🦄',
-	});
+const PublicController = {
+	hello: async (req, res) => {
+		res.status(200).json({
+			message: '🦄🌈✨Hello World! 🌈✨🦄',
+		});
+	},
+	getAllContents: async (req, res) => {},
 };
 
-exports.getAllContents = async (req, res) => {};
+module.exports = PublicController;

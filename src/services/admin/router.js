@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const { createNewSection } = require('./controllers');
+const AdminController = require('./controllers');
 
-router.route('/contents/new').post(createNewSection);
+router.route('/contents/new').post(AdminController.createNewSection);
 
 module.exports = router;
