@@ -2,6 +2,20 @@ const { Content, Page, Section } = require('../../models/content.model');
 const { Types } = require('mongoose');
 
 const AdminController = {
+	getAll: async (_, res) => {
+		try {
+			const contents = await Content.find().populate({
+				path: 'sections',
+				populate: {
+					path: 'pages',
+				},
+			});
+
+			return res.status(200).json(contents);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 	createNewSection: async (req, res) => {
 		const { title, desc, published, sectionName } = req.body;
 		const newPage = new Page({
