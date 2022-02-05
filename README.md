@@ -33,7 +33,7 @@ This is a learn project about book blog.
 ## Public Service:
 
 - [x] GET /contents Get all published contents
-- [ ] GET /contents/:content_id Get content by id
+- [x] GET /contents/:content_id Get content by id
 - [ ] GET /contents/sections/:content_id Get all sections by content id
 - [ ] GET /sections/:section_id Get section by id
 
