@@ -19,7 +19,7 @@ This is a learn project about book blog.
 ### Admin Service:
 
 - [x] GET /admin/contents
-- [ ] GET /admin/contents/:id
+- [x] GET /admin/contents/:id
 - [x] POST /admin/contents/new
 - [ ] PATCH /admin/contents/:content_id
 - [ ] POST /admin/contents/newSection/:content_id
