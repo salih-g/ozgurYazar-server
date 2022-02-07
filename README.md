@@ -22,9 +22,9 @@ This is a learn project about book blog.
 - [x] GET /admin/contents/:content_id Get content by id
 - [x] POST /admin/contents/new Create new content
 - [x] DELETE /admin/contents/:content_id Delete content by id
-- [ ] PATCH /admin/contents/:content_id Update content by id
+- [x] PATCH /admin/contents/:content_id Update content by id
 
-- [ ] POST /admin/contents/sections/new/:content_id Create new section
+- [x] POST /admin/contents/sections/:content_id Create new section
 - [ ] GET /admin/contents/sections/:section_id Get section by id
 - [ ] DELETE /admin/contents/sections/:content_id Delete section
 - [ ] PATCH /admin/contents/section/:section_id Update section
