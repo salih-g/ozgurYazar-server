@@ -239,7 +239,17 @@ const PageControllers = {
 		}
 	},
 
-	deletePage: async (req, res) => {},
+	deletePage: async (req, res) => {
+		const { id } = req.params;
+
+		try {
+			await Page.findByIdAndRemove(id);
+
+			return res.status(200).json({ message: 'Page deleted' });
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 };
 
 module.exports = { ContentControllers, SectionControllers, PageControllers };
