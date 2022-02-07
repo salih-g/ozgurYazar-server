@@ -150,16 +150,6 @@ const SectionControllers = {
 		}
 	},
 
-	deleteSection: async (req, res) => {
-		const { id } = req.params;
-		try {
-			await Section.findByIdAndRemove(id);
-			return res.status(200).json({ message: 'Section deleted' });
-		} catch (err) {
-			return res.status(500).json({ error: err.message || err });
-		}
-	},
-
 	updateSection: async (req, res) => {
 		const { id } = req.params;
 		const { title, published } = req.body;
@@ -174,6 +164,16 @@ const SectionControllers = {
 				path: 'pages',
 			});
 			return res.status(200).json(updatedSection);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
+
+	deleteSection: async (req, res) => {
+		const { id } = req.params;
+		try {
+			await Section.findByIdAndRemove(id);
+			return res.status(200).json({ message: 'Section deleted' });
 		} catch (err) {
 			return res.status(500).json({ error: err.message || err });
 		}
@@ -213,9 +213,23 @@ const PageControllers = {
 		}
 	},
 
-	deletePage: async (req, res) => {},
+	updatePage: async (req, res) => {
+		const { id } = req.params;
+		const { content } = req.body;
 
-	updatePage: async (req, res) => {},
+		try {
+			await Page.findByIdAndUpdate(id, {
+				content,
+			});
+
+			const updatedPage = await Page.findById(id);
+			return res.status(200).json(updatedPage);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
+
+	deletePage: async (req, res) => {},
 };
 
 module.exports = { ContentControllers, SectionControllers, PageControllers };

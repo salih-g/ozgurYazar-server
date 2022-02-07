@@ -31,7 +31,7 @@ This is a learn project about book blog.
 
 - [x] POST /admin/contents/pages/:section_id Create new page
 - [x] GET /admin/contents/pages/:page_id Get page by id
-- [ ] PATCH /admin/contents/pages/:page_id Update page
+- [x] PATCH /admin/contents/pages/:page_id Update page
 - [ ] DELETE /admin/contents/pages/:page_id Delete page
 
 ## Public Service:
