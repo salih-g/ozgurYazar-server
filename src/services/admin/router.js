@@ -15,5 +15,8 @@ router
 router
 	.route('/contents/sections/:id')
 	.get(auth, SectionControllers.getSectionById);
+router
+	.route('/contents/sections/:id')
+	.delete(auth, SectionControllers.deleteSection);
 
 module.exports = router;

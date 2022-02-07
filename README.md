@@ -26,7 +26,7 @@ This is a learn project about book blog.
 
 - [x] POST /admin/contents/sections/:content_id Create new section
 - [x] GET /admin/contents/sections/:section_id Get section by id
-- [ ] DELETE /admin/contents/sections/:content_id Delete section
+- [x] DELETE /admin/contents/sections/:content_id Delete section
 - [ ] PATCH /admin/contents/section/:section_id Update section
 
 - [ ] POST /admin/contents/page/:section_id Create new page

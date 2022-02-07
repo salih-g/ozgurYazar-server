@@ -148,7 +148,15 @@ const SectionControllers = {
 		}
 	},
 
-	deleteSection: async (req, res) => {},
+	deleteSection: async (req, res) => {
+		const { id } = req.params;
+		try {
+			await Section.findByIdAndRemove(id);
+			return res.status(200).json({ message: 'Section deleted' });
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 
 	updateSection: async (req, res) => {},
 };
