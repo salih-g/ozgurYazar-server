@@ -1,7 +1,7 @@
 const { Content, Page, Section } = require('../../models/content.model');
 const { Types } = require('mongoose');
 
-const AdminControllerContents = {
+const ContentControllers = {
 	createNewContent: async (req, res) => {
 		const { title, desc, published, sectionName } = req.body;
 		const newPage = new Page({
@@ -99,7 +99,7 @@ const AdminControllerContents = {
 	},
 };
 
-const AdminControllerSections = {
+const SectionControllers = {
 	createNewSection: async (req, res) => {
 		const { id } = req.params;
 		const { title, published } = req.body;
@@ -134,11 +134,23 @@ const AdminControllerSections = {
 		}
 	},
 
-	getSectionById: async (req, res) => {},
+	getSectionById: async (req, res) => {
+		const { id } = req.params;
+
+		try {
+			const section = await Section.findById(id).populate({
+				path: 'pages',
+			});
+
+			return res.status(200).json(section);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 
 	deleteSection: async (req, res) => {},
 
 	updateSection: async (req, res) => {},
 };
 
-module.exports = { AdminControllerContents, AdminControllerSections };
+module.exports = { ContentControllers, SectionControllers };
