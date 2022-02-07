@@ -40,8 +40,10 @@ const ContentControllers = {
 		try {
 			const contents = await Content.find().populate({
 				path: 'sections',
+				sort: { created_at: -1 },
 				populate: {
 					path: 'pages',
+					sort: { created_at: -1 },
 				},
 			});
 
@@ -56,8 +58,10 @@ const ContentControllers = {
 		try {
 			const content = await Content.findById(id).populate({
 				path: 'sections',
+				sort: { created_at: -1 },
 				populate: {
 					path: 'pages',
+					sort: { created_at: -1 },
 				},
 			});
 
@@ -90,8 +94,10 @@ const ContentControllers = {
 
 			const updatedContent = await Content.findById(id).populate({
 				path: 'sections',
+				sort: { created_at: -1 },
 				populate: {
 					path: 'pages',
+					sort: { created_at: -1 },
 				},
 			});
 			return res.status(200).json(updatedContent);
@@ -125,8 +131,10 @@ const SectionControllers = {
 
 			const updatedContent = await Content.findById(id).populate({
 				path: 'sections',
+				sort: { created_at: -1 },
 				populate: {
 					path: 'pages',
+					sort: { created_at: -1 },
 				},
 			});
 
@@ -142,6 +150,7 @@ const SectionControllers = {
 		try {
 			const section = await Section.findById(id).populate({
 				path: 'pages',
+				sort: { created_at: -1 },
 			});
 
 			return res.status(200).json(section);
@@ -162,6 +171,7 @@ const SectionControllers = {
 
 			const updatedSection = await Section.findById(id).populate({
 				path: 'pages',
+				sort: { created_at: -1 },
 			});
 			return res.status(200).json(updatedSection);
 		} catch (err) {
