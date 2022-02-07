@@ -27,12 +27,12 @@ This is a learn project about book blog.
 - [x] POST /admin/contents/sections/:content_id Create new section
 - [x] GET /admin/contents/sections/:section_id Get section by id
 - [x] DELETE /admin/contents/sections/:content_id Delete section
-- [ ] PATCH /admin/contents/section/:section_id Update section
+- [x] PATCH /admin/contents/sections/:section_id Update section
 
-- [ ] POST /admin/contents/page/:section_id Create new page
-- [ ] GET /admin/contents/page/:page_id Get page by id
-- [ ] PATCH /admin/contents/page/:page_id Update page
-- [ ] DELETE /admin/contents/page/:page_id Delete page
+- [x] POST /admin/contents/pages/:section_id Create new page
+- [ ] GET /admin/contents/pages/:page_id Get page by id
+- [ ] PATCH /admin/contents/pages/:page_id Update page
+- [ ] DELETE /admin/contents/pages/:page_id Delete page
 
 ## Public Service:
 

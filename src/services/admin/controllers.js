@@ -4,6 +4,7 @@ const { Types } = require('mongoose');
 const ContentControllers = {
 	createNewContent: async (req, res) => {
 		const { title, desc, published, sectionName } = req.body;
+
 		const newPage = new Page({
 			_id: new Types.ObjectId(),
 			content: '',
@@ -79,6 +80,7 @@ const ContentControllers = {
 	updateContent: async (req, res) => {
 		const { id } = req.params;
 		const { title, desc, published } = req.body;
+
 		try {
 			await Content.findByIdAndUpdate(id, {
 				title,
@@ -128,7 +130,7 @@ const SectionControllers = {
 				},
 			});
 
-			return res.status(200).json(updatedContent);
+			return res.status(201).json(updatedContent);
 		} catch (err) {
 			return res.status(500).json({ error: err.message || err });
 		}
@@ -158,7 +160,52 @@ const SectionControllers = {
 		}
 	},
 
-	updateSection: async (req, res) => {},
+	updateSection: async (req, res) => {
+		const { id } = req.params;
+		const { title, published } = req.body;
+
+		try {
+			await Section.findByIdAndUpdate(id, {
+				title,
+				published,
+			});
+
+			const updatedSection = await Section.findById(id).populate({
+				path: 'pages',
+			});
+			return res.status(200).json(updatedSection);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 };
 
-module.exports = { ContentControllers, SectionControllers };
+const PageControllers = {
+	createNewPage: async (req, res) => {
+		const { id } = req.params;
+		const { content } = req.body;
+
+		const newPage = new Page({
+			_id: new Types.ObjectId(),
+			content: content || '',
+		});
+
+		try {
+			const page = await newPage.save();
+
+			await Section.findByIdAndUpdate(id, { $push: { pages: page } });
+
+			const updatedSection = await Section.findById(id).populate('pages');
+
+			return res.status(201).json(updatedSection);
+		} catch (err) {}
+	},
+
+	getPageById: async (req, res) => {},
+
+	deletePage: async (req, res) => {},
+
+	updatePage: async (req, res) => {},
+};
+
+module.exports = { ContentControllers, SectionControllers, PageControllers };
