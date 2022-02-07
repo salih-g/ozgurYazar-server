@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const PageSchema = new Schema(
 	{
+		number: {
+			type: Number,
+			required: false,
+		},
 		content: {
 			type: String,
 			required: false,

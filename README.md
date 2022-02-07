@@ -21,21 +21,24 @@ This is a learn project about book blog.
 - [x] GET /admin/contents Get all contents
 - [x] GET /admin/contents/:content_id Get content by id
 - [x] POST /admin/contents/new Create new content
+- [x] DELETE /admin/contents/:content_id Delete content by id
 - [ ] PATCH /admin/contents/:content_id Update content by id
-- [ ] DELETE /admin/contents/:content_id Delete content by id
 
-- [ ] GET /admin/sections/:content_id Create new section
-- [ ] POST /admin/sections/new/:content_id Create new section
-- [ ] DELETE /admin/sections/:content_id Create new section
-- [ ] POST /admin/sections/newPage/:section_id Create new page
-- [ ] PATCH /admin/contents/newPage/:section_id Update
+- [ ] POST /admin/contents/sections/new/:content_id Create new section
+- [ ] GET /admin/contents/sections/:section_id Get section by id
+- [ ] DELETE /admin/contents/sections/:content_id Delete section
+- [ ] PATCH /admin/contents/section/:section_id Update section
+
+- [ ] POST /admin/contents/page/:section_id Create new page
+- [ ] GET /admin/contents/page/:page_id Get page by id
+- [ ] PATCH /admin/contents/page/:page_id Update page
+- [ ] DELETE /admin/contents/page/:page_id Delete page
 
 ## Public Service:
 
 - [x] GET /contents Get all published contents
 - [x] GET /contents/:content_id Get content by id
-- [ ] GET /contents/sections/:content_id Get all sections by content id
-- [ ] GET /sections/:section_id Get section by id
+- [x] GET /sections/:section_id Get section by id
 
 ---
 
@@ -76,6 +79,12 @@ This is a learn project about book blog.
 - Her sayfaya kelime limiti konucak
 - Yeni sayfa oluşturmak için butona basılıcak
 - Errorları logger ile handle et
+- Sectionlar kendi içinde update olcak
+- Her section oluştuğunda yeni sayfa eklencek
+
+### Bugs:
+
+- Delete conntected pages and sections with content
 
 ### Data model:
 

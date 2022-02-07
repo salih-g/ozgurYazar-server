@@ -65,6 +65,15 @@ const AdminController = {
 			return res.status(500).json({ error: err.message || err });
 		}
 	},
+	deleteContent: async (req, res) => {
+		const { id } = req.params;
+		try {
+			await Content.findByIdAndRemove(id);
+			return res.status(200).json({ message: 'Content deleted' });
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 };
 
 module.exports = AdminController;

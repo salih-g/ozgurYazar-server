@@ -1,4 +1,4 @@
-const { Content, Page, Section } = require('../../models/content.model');
+const { Content, Section } = require('../../models/content.model');
 
 const PublicController = {
 	hello: async (req, res) => {
@@ -33,6 +33,17 @@ const PublicController = {
 			});
 
 			return res.status(200).json(content);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
+
+	getSectionById: async (req, res) => {
+		const { id } = req.params;
+		try {
+			const sections = await Section.findById(id).populate('pages');
+
+			return res.status(200).json(sections);
 		} catch (err) {
 			return res.status(500).json({ error: err.message || err });
 		}
