@@ -30,7 +30,7 @@ This is a learn project about book blog.
 - [x] PATCH /admin/contents/sections/:section_id Update section
 
 - [x] POST /admin/contents/pages/:section_id Create new page
-- [ ] GET /admin/contents/pages/:page_id Get page by id
+- [x] GET /admin/contents/pages/:page_id Get page by id
 - [ ] PATCH /admin/contents/pages/:page_id Update page
 - [ ] DELETE /admin/contents/pages/:page_id Delete page
 

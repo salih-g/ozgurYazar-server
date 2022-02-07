@@ -201,7 +201,17 @@ const PageControllers = {
 		} catch (err) {}
 	},
 
-	getPageById: async (req, res) => {},
+	getPageById: async (req, res) => {
+		const { id } = req.params;
+
+		try {
+			const page = await Page.findById(id);
+
+			return res.status(200).json(page);
+		} catch (err) {
+			return res.status(500).json({ error: err.message || err });
+		}
+	},
 
 	deletePage: async (req, res) => {},
 

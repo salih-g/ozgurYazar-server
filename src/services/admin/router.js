@@ -27,5 +27,8 @@ router
 	.patch(auth, SectionControllers.updateSection);
 
 router.route('/contents/pages/:id').post(auth, PageControllers.createNewPage);
+router.route('/contents/pages/:id').get(auth, PageControllers.getPageById);
+router.route('/contents/pages/:id').patch(auth, PageControllers.updatePage);
+router.route('/contents/pages/:id').delete(auth, PageControllers.deletePage);
 
 module.exports = router;
