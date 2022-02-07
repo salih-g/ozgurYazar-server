@@ -11,8 +11,10 @@ const PublicController = {
 		try {
 			const contents = await Content.find({ published: true }).populate({
 				path: 'sections',
+				sort: { created_at: -1 },
 				populate: {
 					path: 'pages',
+					sort: { created_at: -1 },
 				},
 			});
 
@@ -27,8 +29,10 @@ const PublicController = {
 		try {
 			const content = await Content.findById(id).populate({
 				path: 'sections',
+				sort: { created_at: -1 },
 				populate: {
 					path: 'pages',
+					sort: { created_at: -1 },
 				},
 			});
 
@@ -41,7 +45,9 @@ const PublicController = {
 	getSectionById: async (req, res) => {
 		const { id } = req.params;
 		try {
-			const sections = await Section.findById(id).populate('pages');
+			const sections = await Section.findById(id).populate('pages', {
+				sort: { created_at: -1 },
+			});
 
 			return res.status(200).json(sections);
 		} catch (err) {
