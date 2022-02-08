@@ -20,7 +20,7 @@ This is a learn project about book blog.
 
 - [x] GET /admin/contents Get all contents
 - [x] GET /admin/contents/:content_id Get content by id
-- [x] POST /admin/contents/new Create new content
+- [x] POST /admin/contents/ Create new content
 - [x] DELETE /admin/contents/:content_id Delete content by id
 - [x] PATCH /admin/contents/:content_id Update content by id
 
