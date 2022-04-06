@@ -1,30 +1,19 @@
 const { Schema, model } = require('mongoose');
 
-const PageSchema = new Schema(
-	{
-		number: {
-			type: Number,
-			required: false,
-		},
-		content: {
-			type: String,
-			required: false,
-		},
-	},
-	{ versionKey: false, timestamps: true },
-);
-
 const SectionSchema = new Schema(
 	{
 		title: {
 			type: String,
 			required: true,
 		},
+		content: {
+			type: String,
+			required: false,
+		},
 		published: {
 			type: Boolean,
 			required: true,
 		},
-		pages: [{ type: Schema.Types.ObjectId, ref: 'page' }],
 	},
 	{ versionKey: false, timestamps: true },
 );
@@ -48,8 +37,7 @@ const ContentSchema = new Schema(
 	{ versionKey: false, timestamps: true },
 );
 
-const page = model('page', PageSchema);
 const section = model('section', SectionSchema);
 const content = model('content', ContentSchema);
 
-module.exports = { Page: page, Section: section, Content: content };
+module.exports = { Section: section, Content: content };

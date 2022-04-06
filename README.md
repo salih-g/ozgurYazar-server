@@ -29,16 +29,11 @@ This is a learn project about book blog.
 - [x] DELETE /admin/contents/sections/:content_id Delete section
 - [x] PATCH /admin/contents/sections/:section_id Update section
 
-- [x] POST /admin/contents/pages/:section_id Create new page
-- [x] GET /admin/contents/pages/:page_id Get page by id
-- [x] PATCH /admin/contents/pages/:page_id Update page
-- [x] DELETE /admin/contents/pages/:page_id Delete page
-
 ## Public Service:
 
 - [x] GET /contents Get all published contents
 - [x] GET /contents/:content_id Get content by id
-- [x] GET /sections/:section_id Get section by id
+- [x] GET /sections/:section_id Get section by id //Note: paginate content field by word
 
 ---
 
@@ -53,15 +48,8 @@ This is a learn project about book blog.
 	"sections": [
 		{
 			"title": "Bolum 1",
+			"content:"<p>blabla</p>",
 			"published": false,
-			"pages": [
-				{
-					"content": "<p>lorem</p>",
-					"_id": "61fac67094a24ed5485ef72d",
-					"createdAt": "2022-02-02T17:59:12.206Z",
-					"updatedAt": "2022-02-02T17:59:12.206Z"
-				}
-			],
 			"_id": "61fac67094a24ed5485ef72e",
 			"createdAt": "2022-02-02T17:59:12.207Z",
 			"updatedAt": "2022-02-02T17:59:12.207Z"
@@ -84,7 +72,7 @@ This is a learn project about book blog.
 
 ### Bugs:
 
-- Delete conntected pages and sections with content
+- Delete conntected sections with content
 
 ### Data model:
 

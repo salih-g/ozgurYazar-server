@@ -14,10 +14,6 @@ const PublicController = {
 				.populate({
 					path: 'sections',
 					sort: { createdAt: 1 },
-					populate: {
-						path: 'pages',
-						sort: { createdAt: 1 },
-					},
 				});
 
 			return res.status(200).json(contents);
@@ -32,10 +28,6 @@ const PublicController = {
 			const content = await Content.findById(id).populate({
 				path: 'sections',
 				sort: { createdAt: 1 },
-				populate: {
-					path: 'pages',
-					sort: { createdAt: 1 },
-				},
 			});
 
 			return res.status(200).json(content);
@@ -47,9 +39,7 @@ const PublicController = {
 	getSectionById: async (req, res) => {
 		const { id } = req.params;
 		try {
-			const sections = await Section.findById(id).populate('pages', {
-				sort: { createdAt: 1 },
-			});
+			const sections = await Section.findById(id);
 
 			return res.status(200).json(sections);
 		} catch (err) {
