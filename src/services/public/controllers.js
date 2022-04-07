@@ -13,6 +13,7 @@ const PublicController = {
 				.sort({ createdAt: -1 })
 				.populate({
 					path: 'sections',
+					match: { published: true },
 					sort: { createdAt: 1 },
 				});
 
@@ -27,6 +28,7 @@ const PublicController = {
 		try {
 			const content = await Content.findById(id).populate({
 				path: 'sections',
+				match: { published: true },
 				sort: { createdAt: 1 },
 			});
 
