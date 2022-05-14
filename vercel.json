@@ -9,7 +9,31 @@
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/src/"
+			"dest": "/auth/login"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/admin/contents"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/admin/contents/:id"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/admin/contents/sections/:id"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/contents"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/contents/:id"
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/sections/:id"
 		}
 	]
 }
