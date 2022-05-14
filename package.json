@@ -5,6 +5,9 @@
 	"main": "src/index.js",
 	"author": "M.Salih Gumus",
 	"license": "MIT",
+	"engines": {
+		"node": "16.x"
+	},
 	"dependencies": {
 		"bcrypt": "^5.0.1",
 		"compression": "^1.7.4",
