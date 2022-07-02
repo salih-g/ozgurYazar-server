@@ -53,10 +53,15 @@ const PublicController = {
 			const sectionIndex = contents[0].sections.findIndex(
 				(section) => section._id.toString() === id,
 			);
-			const nextSectionId =
-				contents[0].sections[sectionIndex + 1]._id.toString();
+			let finalData;
+			if (contents[0].sections[sectionIndex + 1]) {
+				const nextSectionId =
+					contents[0].sections[sectionIndex + 1]._id.toString();
 
-			const finalData = { nextSectionId, ...section._doc };
+				finalData = { nextSectionId, ...section._doc };
+			}
+
+			finalData = { ...section._doc };
 
 			return res.status(200).json(finalData);
 		} catch (err) {
