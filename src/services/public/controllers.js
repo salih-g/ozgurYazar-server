@@ -41,9 +41,24 @@ const PublicController = {
 	getSectionById: async (req, res) => {
 		const { id } = req.params;
 		try {
-			const sections = await Section.findById(id);
+			const section = await Section.findById(id);
+			const contents = await Content.find({ published: true })
+				.sort({ createdAt: -1 })
+				.populate({
+					path: 'sections',
+					match: { published: true },
+					sort: { createdAt: 1 },
+				});
 
-			return res.status(200).json(sections);
+			const sectionIndex = contents[0].sections.findIndex(
+				(section) => section._id.toString() === id,
+			);
+			const nextSectionId =
+				contents[0].sections[sectionIndex + 1]._id.toString();
+
+			const finalData = { nextSectionId, ...section._doc };
+
+			return res.status(200).json(finalData);
 		} catch (err) {
 			return res.status(500).json({ error: err.message || err });
 		}
