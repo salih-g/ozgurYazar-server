@@ -54,14 +54,15 @@ const PublicController = {
 				(section) => section._id.toString() === id,
 			);
 			let finalData;
-			if (contents[0].sections[sectionIndex + 1]) {
+
+			if (contents[0].sections[sectionIndex + 1] !== undefined) {
 				const nextSectionId =
 					contents[0].sections[sectionIndex + 1]._id.toString();
 
 				finalData = { nextSectionId, ...section._doc };
+			} else {
+				finalData = { ...section._doc };
 			}
-
-			finalData = { ...section._doc };
 
 			return res.status(200).json(finalData);
 		} catch (err) {
